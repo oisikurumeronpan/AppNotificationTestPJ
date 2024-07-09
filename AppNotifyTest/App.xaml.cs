@@ -14,12 +14,6 @@ namespace AppNotifyTest
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            AppNotificationManager.Default.NotificationInvoked += (s, e) => { };
-            AppNotificationManager.Default.Register();
-        }
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
