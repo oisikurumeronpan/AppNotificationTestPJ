@@ -1,4 +1,5 @@
-﻿using Microsoft.Windows.AppNotifications.Builder;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using Microsoft.Windows.AppNotifications.Builder;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Windows.ApplicationModel.Background;
 using Windows.UI.Notifications;
 
 namespace AppNotifyTest
@@ -28,21 +30,12 @@ namespace AppNotifyTest
 
         private void Notifybtn_Click(object sender, RoutedEventArgs e)
         {
-            var notification = new AppNotificationBuilder()
-                .AddText("Hello!!")
-                .BuildNotification();
-            var doc = new Windows.Data.Xml.Dom.XmlDocument();
-            doc.LoadXml(notification.Payload);
-            var toast = new ToastNotification(doc);
-            notifier.Show(toast);
-
-            toast.Activated += (_, __) =>
-            {
-                Dispatcher.BeginInvoke(() =>
-                {
-                    new SuccessWindow().Show();
-                });
-            };
+            new ToastContentBuilder()
+                .AddArgument("action", "viewConversation")
+                .AddArgument("conversationId", 9813)
+                .AddText("Andrew sent you a picture")
+                .AddText("Check this out, The Enchantments in Washington!")
+                .Show();
         }
     }
 }

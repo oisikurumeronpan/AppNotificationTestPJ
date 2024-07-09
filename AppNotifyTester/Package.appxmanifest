@@ -50,7 +50,7 @@
 
 			<com:Extension Category="windows.comServer">
 				<com:ComServer>
-					<com:ExeServer Executable="AppNotifyTest\AppNotifyTest.exe" DisplayName="AppNotifyTest" Arguments="----AppNotificationActivated:">
+					<com:ExeServer Executable="AppNotifyTest\AppNotifyTest.exe" DisplayName="AppNotifyTest" Arguments="-ToastActivated">
 						<com:Class Id="40c4dbd6-c9b0-408a-89a1-afc492aad772" />
 					</com:ExeServer>
 				</com:ComServer>
